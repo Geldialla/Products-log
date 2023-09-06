@@ -1,0 +1,94 @@
+<div class="container">
+    <section>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="bcode">Barcode</label>
+            <input
+              type="text"
+              class="form-control"
+              id="bcode"
+              [(ngModel)]="product.barcode"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              [(ngModel)]="product.name"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="bcode">Description</label>
+            <textarea
+              class="form-control"
+              id="bcode"
+              [(ngModel)]="product.description"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              id="price"
+              [(ngModel)]="product.price"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select
+              class="form-control"
+              name=""
+              id="category"
+              [(ngModel)]="product.categoryId"
+            >
+              <option
+                [value]="category.id"
+                *ngFor="let category of categoryElements"
+              >
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="onSubmitHandler()">Submit</button>
+    </section>
+    <section>
+      <div>
+        <span>Name:</span>
+        <span>{{ product.name }}</span>
+      </div>
+      <div>
+        <span>Barcode:</span>
+        <span>{{ product.barcode }}</span>
+      </div>
+      <div>
+        <span>Description:</span>
+        <span>{{ product.description }}</span>
+      </div>
+      <div>
+        <span>Price:</span>
+        <span>{{ product.price }}</span>
+      </div>
+      <div>
+        <span>Category:</span>
+        <span>{{ findCategoryName(product.categoryId) }}</span>
+      </div>
+    </section>
+  </div>
